@@ -132,7 +132,7 @@ au BufNewFile,BufRead *.js, *.html, *.css
 " clang-format for c/c++ files
 function! Formatonsave()
   let l:formatdiff = 1
-  " change this to point to clang-format installation
-  pyf /usr/local/Cellar/clang-format/2018-04-24/share/clang/clang-format.py
+  " change this to point to clang-format installation from homebrew
+  pyf $(brew list clang-format| egrep "\/share\/clang\/clang-format\.py$")
 endfunction
 autocmd BufWritePre *.h,*.cc,*.cpp call Formatonsave()
